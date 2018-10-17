@@ -11,6 +11,6 @@ end
 
 Project.all.each do |project|
   Faker::Number.between(5, 10).times do
-    project.tasks.create(title: Faker::Name.name, description: Faker::Lorem.paragraph)
+    project.sections.create(name: Faker::Name.name)
   end
 end

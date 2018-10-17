@@ -91,7 +91,6 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
-    dotenv (2.5.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faker (1.9.1)
@@ -284,7 +283,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
-  dotenv
   faker
   figaro
   font-awesome-rails
