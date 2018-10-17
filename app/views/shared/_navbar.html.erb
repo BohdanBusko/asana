@@ -1,0 +1,55 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+<div class="navbar-start">
+  <a class="navbar-item">
+    ASANA
+  </a>
+
+  <a class="navbar-item">
+    ##
+  </a>
+
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+      ##
+    </a>
+    <div class="navbar-dropdown">
+      <a class="navbar-item">
+        ##
+      </a>
+      <a class="navbar-item">
+        ##
+      </a>
+      <a class="navbar-item">
+        ##
+      </a>
+      <hr class="navbar-divider">
+      <a class="navbar-item">
+        ##
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="navbar-end">
+  <div class="navbar-item">
+    <div class="buttons">
+      <%if (!user_signed_in?)%>
+        <%= link_to "Log in", new_user_session_path, class: 'button is-primary'%>
+        <%= link_to "Sign Up", new_user_registration_path, class: 'button is-light'%>
+      <%else%>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'button is-primary'%>
+      <%end%>
+    </div>
+  </div>
+</div>
+</div>
+</nav>
