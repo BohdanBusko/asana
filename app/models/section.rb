@@ -1,5 +1,6 @@
 class Section < ApplicationRecord
-  belongs_to :project
   has_many :tasks
+  belongs_to :project
+
   validates :name, length: { maximum: 250 }, presence: true
 end
