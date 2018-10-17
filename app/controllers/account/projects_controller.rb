@@ -47,7 +47,7 @@ class Account::ProjectsController < ApplicationController
   def project_params
     params.require(:project).permit( :name)
   end
-  
+
   def set_project
     @project = Project.find(params[:project_id])
   end
