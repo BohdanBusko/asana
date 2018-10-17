@@ -32,7 +32,7 @@ class Account::ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    project=@curent_user.projects.find(project_params)
   end
 
   def destroy
