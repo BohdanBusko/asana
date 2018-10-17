@@ -45,7 +45,7 @@ class Account::TasksController < Account::AccountController
   end
 
   def find_task
-    @task = Task.find(params[:id])
+    @task = Project.tasks.find(params[:id])
   end
 
   def set_project
