@@ -3,15 +3,15 @@ class Account::ProjectsController < ApplicationController
   before_action :set_project, only: [:edit, :update, :destroy]
 
   def index
-    @projects=current_user.projects.all
+    @projects = current_user.projects.all
   end
 
   def new
-    @project=current_user.projects.new
+    @project = current_user.projects.new
   end
 
   def create
-    project=current_user.projects.new(project_params)
+    @project = current_user.projects.new(project_params)
 
     if @project.save
       redirect_to account_user_path(@current_user)
@@ -32,7 +32,7 @@ class Account::ProjectsController < ApplicationController
   end
 
   def show
-    project=current_user.projects.find(project_params)
+    @project = current_user.projects.find(project_params)
   end
 
   def destroy
@@ -40,7 +40,6 @@ class Account::ProjectsController < ApplicationController
     redirect_to account_user_path(@current_user)
   end
 
-  end
 
   private
 
