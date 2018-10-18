@@ -1,15 +1,5 @@
-p
-  = link_to "Edit", edit_account_project_task_path(@project, @task)
-p
-  = link_to "Delete", account_project_task_path(@project, @task), method: :delete, data: {confirm: "Are you sure?"}
-br
-p Title:
-= @task.title
-p Description:
-= @task.description
-p
-  = link_to 'Tasks', account_project_tasks_path(@project)
-br
-br
-p 
-  = link_to "Tasks", projects_path
+.title
+  = @task.title
+.section
+  .description
+    = @task.description

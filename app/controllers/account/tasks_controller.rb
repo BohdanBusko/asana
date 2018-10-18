@@ -1,24 +1,21 @@
 class Account::TasksController < Account::AccountController
-  before_action :set_project
-  before_action :find_task, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @tasks = @project.tasks
-  end
+  before_action :set_project_and_section
+  before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def show
   end
 
   def new
-    @task = @project.tasks.new
+    @task = @section.tasks.new
   end
 
   def create
-    @task = @project.tasks.new(tasks_params)
+    @task = @section.tasks.new(tasks_params)
+
     if @task.save
-      redirect_to account_project_tasks_path
+      redirect_to account_project_path(@project)
     else
-      render "new"
+      render :new
     end
   end
 
@@ -27,7 +24,7 @@ class Account::TasksController < Account::AccountController
 
   def update
     if @task.update(tasks_params)
-      redirect_to account_project_tasks_path
+      redirect_to account_project_path(@project)
     else
       render "edit"
     end
@@ -35,20 +32,21 @@ class Account::TasksController < Account::AccountController
 
   def destroy
     @task.destroy
-    redirect_to account_project_tasks_path
+    redirect_to account_project_path(@project)
   end
 
   private
+
+  def set_project_and_section
+    @project = current_user.projects.find(params[:project_id])
+    @section = @project.sections.find(params[:section_id])
+  end
 
   def tasks_params
     params.require(:task).permit(:title, :description)
   end
 
-  def find_task
-    @task = Project.tasks.find(params[:id])
-  end
-
-  def set_project
-    @project = Project.find(params[:project_id])
+  def set_task
+    @task = @section.tasks.find(params[:id])
   end
 end

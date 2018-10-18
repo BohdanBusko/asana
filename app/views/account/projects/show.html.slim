@@ -4,10 +4,21 @@
   | Sections
   - @project.sections.each do |section|
     .my-section
-      = section.name
-      '
-      = link_to 'Edit', edit_account_project_section_path(@project, section)
-      '
-      = link_to 'Delete', account_project_section_path(@project, section),
+      .title
+        = section.name
+        '
+        = link_to 'Edit', edit_account_project_section_path(@project, section)
+        '
+        = link_to 'Delete', account_project_section_path(@project, section),
                 method: :delete, data: { confirm: 'Are you sure?' }
+      .tasks
+        - section.tasks.each do |task|
+          .title.is-4
+            = link_to task.title, account_project_section_task_path(@project, section, task)
+            '
+            = link_to 'Edit', edit_account_project_section_task_path(@project, section, task)
+            '
+            = link_to 'Delete', account_project_section_task_path(@project, section, task)
+      .new-task
+        = link_to 'New task', new_account_project_section_task_path(@project, section)
   = link_to 'New section', new_account_project_section_path(@project)
