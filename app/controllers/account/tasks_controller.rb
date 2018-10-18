@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 class Account::TasksController < ApplicationController
+=======
+class Account::TasksController < Account::AccountController
+>>>>>>> 3a5f39856f9f6727a1e0b6081a0bf2ca1076204f
   before_action :set_project_and_section
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
