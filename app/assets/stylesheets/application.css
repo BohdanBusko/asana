@@ -15,4 +15,22 @@
  */
 
 @import 'bulma';
-@import 'font-awesome';
+
+.navbar{
+  background-color: #f7f5f5;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+}
+.button{
+  margin: 5px 0;
+}
+
+.form-inputs{
+  max-width: 80%;
+}
+
+lable {
+  display: block;
+  width:100%;
+}
