@@ -4,5 +4,10 @@ br/
     = form.label :project_name
     br/
     = form.text_field :name
-    = form.submit
- 
+    br/
+    .level
+      .level-left
+        .level-item
+          = form.submit
+        .level-item
+          = link_to 'Back', :back

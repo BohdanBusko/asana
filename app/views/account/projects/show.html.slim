@@ -4,6 +4,8 @@ br/
     .level-left
       .level-item
         = link_to "add section", new_account_project_section_path(@project), class: "button  is-link"
+      .level-item
+        = link_to "back", account_projects_path, class: "button  is-link"
   - @project.sections.each do |section|
     .conteiner.box
       .level
