@@ -15,16 +15,30 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'slim-rails'
-gem 'simple_form'
+gem 'font-awesome-rails'
+gem 'figaro'
 gem 'devise'
-gem 'bulma-rails'
 gem 'any_login'
 gem 'kaminari'
+gem 'simple_form'
+gem 'carrierwave'
+gem 'ransack'
+gem 'friendly_id'
+gem 'babosa'
+gem 'bulma-rails'
+gem 'webpacker'
+gem 'react_on_rails'
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth-facebook', '~> 4.0'
+gem 'annotate'
 
 
 group :development, :test do
   gem 'faker'
+  gem 'pry-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
