@@ -287,5 +287,5 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  config.omniauth :facebook, "2213798932209307", "8560dbd360058e9e4dfafd4f9328bbc0", scope: 'email', info_fields: 'email, name'
+  config.omniauth :facebook, "2213798932209307", "8560dbd360058e9e4dfafd4f9328bbc0", token_params: { parse: :json }, scope: 'email', info_fields: 'email, name'
 end
