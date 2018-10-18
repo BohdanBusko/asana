@@ -6,4 +6,9 @@ br/
     h3 Description
     = @task.description
     br/
-    = link_to "edit",  edit_account_project_section_task_path(@project, @section, @task), class: "button is-small right"
+    .level
+      .level-left
+        .level-item
+          = link_to "edit",  edit_account_project_section_task_path(@project, @section, @task), class: "button is-small right"
+        .level-item
+          = link_to "delete",  account_project_section_task_path(@project, @section, @task), :method => :delete, class: "button is-small right"

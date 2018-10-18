@@ -1,5 +1,0 @@
-= simple_form_for [:account, @project, @section, @task] do |f|
-  = f.input :title
-  = f.input :description
-  = f.submit 'Save', class: "button is-primary"
-  = link_to 'Cancel', account_project_path(@project)
