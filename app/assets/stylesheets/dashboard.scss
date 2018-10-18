@@ -1,0 +1,32 @@
+.navbar{
+  background-color: #f7f5f5;
+  border-bottom: 1px solid #ececec;
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+
+  .asana_logo {
+    height: auto;
+    align-items: center;
+  }
+}
+.button{
+  margin: 5px 0;
+}
+
+.form-inputs{
+  max-width: 80%;
+}
+
+lable {
+  display: block;
+  width:100%;
+}
+
+.user_email {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #00d1b2;
+  color: white;
+  border-color: black;
+  border-width: 1px;
+}
