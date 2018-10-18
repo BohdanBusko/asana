@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do |i|
+5.times do |i|
   User.create(email: "supersem#{i}@asana.com", password: '123456')
 end
+
+#Add test fasebook's users
+User.create(email: "teyqqgzreh_1539851928@tfbnw.net", password: 'qwerasdf')
+User.create(email: "vgfjbsjzqu_1539851913@tfbnw.net", password: 'qwerasdf')
 
 User.all.each do |user|
   Faker::Number.between(5, 10).times do |i|

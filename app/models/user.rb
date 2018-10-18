@@ -2,6 +2,8 @@ class User < ApplicationRecord
   has_many :projects
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  validates :full_name, length: { maximum: 250 }, presence: true
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook]
