@@ -1,27 +1,37 @@
-nav.navbar role="navigation" aria-label="main navigation"
+.navbar.is-success[role="navigation" aria-label="main navigation"]
   .navbar-brand
-    a.navbar-item href="/"
-      img src="https://s3-eu-west-1.amazonaws.com/tpd/screenshotlogo-domain/516b2d9d0000640005262e0c/198x149.png" height="50px"
-    a.navbar-burger.burger role="button" aria-label="menu" aria-expanded="false"
-      span aria-hidden="true"
-        '1
-      span aria-hidden="true"
-        '2
-      span aria-hidden="true"
-        '3
-  .navbar-menu
+    .navbar-item
+      = link_to image_tag("asana_logo.png", class: "asana_logo"), root_path
+    a.navbar-burger.burger[role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+  #navbar_test.navbar-menu
     .navbar-start
-      a.navbar-item
-        'ASANA
-      a.navbar-item
-        '1
-      a.navbar-item
-        '2
+      .navbar-item IF-089.Ruby 
+      - if user_signed_in?
+        a.navbar-item[href="/account/dashboard"]
+          | Dashboard
+        a.navbar-item[href="/account/projects"]
+          | My projects
+      / .navbar-item.has-dropdown.is-hoverable
+        a.navbar-link
+          |  My Tasks 
+        .navbar-dropdown
+          a.navbar-item
+            |  List 
+          a.navbar-item
+            |  Calendar 
     .navbar-end
       .navbar-item
-        .buttons
-          -if (!user_signed_in?)
-            = link_to "Log in", new_user_session_path, class: 'button is-primary'
-            = link_to "Sign Up", new_user_registration_path, class: 'button is-light'
-          -else
+        - if (!user_signed_in?)
+          .buttons
+              .button.is-primary
+                = link_to "Sign Up", new_user_registration_path
+              .button.is-light
+                = link_to "Log in", new_user_session_path
+        - else
+          .navbar-item
+            .user_email
+              = current_user.email
             = link_to "Log out", destroy_user_session_path, method: :delete, class: 'button is-primary'
