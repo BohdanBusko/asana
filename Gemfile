@@ -30,12 +30,15 @@ gem 'webpacker'
 gem 'react_on_rails'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'annotate'
 
 
 group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do

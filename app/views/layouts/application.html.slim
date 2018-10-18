@@ -11,11 +11,13 @@ html
 
 
   body
-    =render 'shared/navbar'
-    p.notification
+    = render 'shared/navbar'
+    .notification
       = notice
-    p.alert
+    .alert
       = alert
     .container
       = yield
-      = any_login_here if defined?(AnyLogin)
+    / = render 'shared/footer'
+
+    = any_login_here if defined?(AnyLogin)

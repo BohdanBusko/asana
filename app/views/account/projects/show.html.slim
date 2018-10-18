@@ -1,0 +1,26 @@
+br/
+.conteiner.box
+  .level
+    .level-left
+      .level-item
+        = link_to "add section", new_account_project_section_path(@project), class: "button  is-link"
+      .level-item
+        = link_to "back", account_projects_path, class: "button  is-link"
+  - @project.sections.each do |section|
+    .conteiner.box
+      .level
+        .level-left
+          .level-item
+            = section.name
+        .level-right
+          .level-item
+            = link_to "edit",  edit_account_project_section_path(section.project_id, section), class: "button is-small right"
+          .level-item
+            = link_to "delete",  account_project_section_path(section.project_id, section), :method => :delete, class: "button is-small right"
+      .level
+        .level-left
+          .level-item
+            = link_to "add task", new_account_project_section_task_path(@project, section), class: "button is-link is-small"
+      - section.tasks.each do |task|
+        = link_to "#{task.title}", account_project_section_task_path(@project, section, task)
+        br/

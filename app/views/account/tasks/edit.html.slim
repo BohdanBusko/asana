@@ -1,0 +1,17 @@
+br/
+.container.box
+  = form_for [:account, @project, @section, @task] do |form|
+    = form.label :title
+    br/
+    = form.text_field :title
+    br/
+    = form.label :description
+    br/
+    = form.text_area :description
+    br/
+    .level
+      .level-left
+        .level-item
+          = form.submit
+        .level-item
+          = link_to 'Back', :back

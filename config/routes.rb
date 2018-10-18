@@ -4,4 +4,13 @@ Rails.application.routes.draw do
               path: '',
               path_names: {sign_in: 'login', sign_out: 'logout', edit: 'profile', sign_up: 'registration'},
               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
+
+  namespace :account do
+    get '/dashboard', to: 'dashboard#index'
+    resources :projects do
+      resources :sections, except: [:index, :show] do
+        resources :tasks, except: [:index]
+      end
+    end
+  end
 end
