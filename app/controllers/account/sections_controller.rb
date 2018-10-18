@@ -3,11 +3,11 @@ class Account::SectionsController < ApplicationController
   before_action :set_section, only: [:edit, :update, :destroy]
 
   def new
-    @section = @project.section.new
+    @section = @project.sections.new
   end
 
   def create
-    @section = @project.section.new(section_params)
+    @section = @project.sections.new(section_params)
 
     if @section.save
       redirect_to account_project_path(@project)
@@ -39,7 +39,7 @@ class Account::SectionsController < ApplicationController
   end
 
   def set_section
-    @project = @project.sections.find(params[:id])
+    @section = @project.sections.find(params[:id])
   end
 
   def section_params

@@ -1,2 +1,13 @@
 .title
   = @project.name
+.sections
+  | Sections
+  - @project.sections.each do |section|
+    .my-section
+      = section.name
+      '
+      = link_to 'Edit', edit_account_project_section_path(@project, section)
+      '
+      = link_to 'Delete', account_project_section_path(@project, section),
+                method: :delete, data: { confirm: 'Are you sure?' }
+  = link_to 'New section', new_account_project_section_path(@project)

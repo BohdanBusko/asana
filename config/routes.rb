@@ -6,6 +6,8 @@ Rails.application.routes.draw do
               controllers: {omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations' }
 
   namespace :account do
-    resources :projects
+    resources :projects do
+      resources :sections, except: [:index, :show]
+    end
   end
 end
