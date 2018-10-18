@@ -6,6 +6,7 @@ class Account::ProjectsController < Account::AccountController
   end
 
   def show
+    @project = Project.find_by(id: params[:id])
   end
 
   def new

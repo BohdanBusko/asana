@@ -1,5 +1,8 @@
-= content_for(:url, account_projects_path)
-
-.title
-  | New project
-= render 'form'
+br/
+.conteiner.box
+  = form_for [:account, @project] do |form|
+    = form.label :project_name
+    br/
+    = form.text_field :name
+    = form.submit
+ 

@@ -3,6 +3,7 @@ class Account::TasksController < Account::AccountController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   def show
+    @task = Task.find_by(id: params[:id])
   end
 
   def new
@@ -24,7 +25,7 @@ class Account::TasksController < Account::AccountController
 
   def update
     if @task.update(tasks_params)
-      redirect_to account_project_path(@project)
+      redirect_to account_project_section_task_path(@project, @section, @task)
     else
       render "edit"
     end

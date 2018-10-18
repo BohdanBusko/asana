@@ -1,5 +1,8 @@
-= content_for(:url, account_project_sections_path(@project))
-
-.title
-  | New section
-= render 'form'
+br/
+.container.box
+  = form_for [:account, @project ,@section] do |form|
+    = form.label :section_name
+    br/
+    = form.text_field :name
+    br/
+    = form.submit
