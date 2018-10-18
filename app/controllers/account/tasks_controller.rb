@@ -25,7 +25,7 @@ class Account::TasksController < Account::AccountController
 
   def update
     if @task.update(tasks_params)
-      redirect_to account_project_path(@project)
+      redirect_to account_project_section_task_path(@project, @section, @task)
     else
       render "edit"
     end
