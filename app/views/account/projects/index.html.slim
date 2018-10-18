@@ -1,9 +1,18 @@
-- @projects.each do |project|
-  .project
-    = link_to project.name, account_project_path(project)
-    '
-    = link_to 'Edit', edit_account_project_path(project)
-    '
-    = link_to 'Delete', account_project_path(project), method: :delete, data: { confirm: 'Are you sure?' }
-|
-= link_to 'New project', new_account_project_path
+br/
+.conteiner.box
+  .level
+    .level-left
+      .level-item
+        = link_to "add project", new_account_project_path, class: "button  is-link"
+  .conteiner
+    - @projects.each do |project|
+      .level
+        .level-left
+          .level-item
+            = link_to "#{project.name}", account_project_path(project)
+        .level-right
+          .level-item
+            = link_to "edit", edit_account_project_path(project), class: "button is-small right"
+          .level-item
+            = link_to "delete",  account_project_path(project), :method => :delete, class: "button is-small right"
+ 

@@ -6,6 +6,9 @@ class Account::ProjectsController < ApplicationController
   end
 
   def show
+    @project = Project.find_by(id: params[:id])
+    @sections = Section.where(project_id: params[:id])
+    @tasks = Task.all
   end
 
   def new
