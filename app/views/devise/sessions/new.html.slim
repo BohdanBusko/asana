@@ -3,14 +3,17 @@ h2.subtitle
   'Log in
 
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required: false, autofocus: true,
-                      input_html: { autocomplete: 'email' }
-    = f.input :password,
+  .container.box
+    .field
+      = f.input :email, required: false, autofocus: true,
+                input_html: { plaseholder: 'Email' },
+                label: false
+      = f.input :password,
                 required: false,
-                input_html: { autocomplete: "current-password" }
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    =f.submit "Log in", class: 'button is-pimary'
+                input_html: { plaseholder: "Password" },
+                label: false
+      = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+    .form-actions
+      = f.submit "Log in", class: 'button is-pimary'
 
 = render "devise/shared/links"
