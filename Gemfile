@@ -31,7 +31,7 @@ gem 'react_on_rails'
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'annotate'
-
+gem 'ranked-model'
 
 group :development, :test do
   gem 'faker'

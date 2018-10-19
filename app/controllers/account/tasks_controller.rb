@@ -1,9 +1,8 @@
 class Account::TasksController < Account::AccountController
   before_action :set_project_and_section
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :move]
 
   def show
-    @task = Task.find_by(id: params[:id])
   end
 
   def new
@@ -33,6 +32,11 @@ class Account::TasksController < Account::AccountController
 
   def destroy
     @task.destroy
+    redirect_to account_project_path(@project)
+  end
+
+  def move
+    @task.update_attribute(:row_order_position, params[:move])
     redirect_to account_project_path(@project)
   end
 

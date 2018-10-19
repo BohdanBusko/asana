@@ -3,7 +3,7 @@ br/
   .level
     .level-left
       .level-item
-        = link_to "add project", new_account_project_path, class: "button  is-link"
+        = link_to "Add project", new_account_project_path, class: "button  is-link"
   .conteiner
     - @projects.each do |project|
       .level
@@ -12,7 +12,8 @@ br/
             = link_to "#{project.name}", account_project_path(project)
         .level-right
           .level-item
-            = link_to "edit", edit_account_project_path(project), class: "button is-small right"
+            = link_to "Edit", edit_account_project_path(project), class: "button is-small right"
           .level-item
-            = link_to "delete",  account_project_path(project), :method => :delete, class: "button is-small right"
+            = link_to "Delete",  account_project_path(project),
+              method: :delete, class: "button is-small right", data: { confirm: "Are you sure?" }
  

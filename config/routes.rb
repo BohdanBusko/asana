@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :projects do
       resources :sections, except: [:index, :show] do
         resources :tasks, except: [:index]
+        put '/task/:id/:move', to: 'tasks#move', as: 'task_move'
       end
     end
   end

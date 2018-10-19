@@ -3,9 +3,9 @@ br/
   .level
     .level-left
       .level-item
-        = link_to "add section", new_account_project_section_path(@project), class: "button  is-link"
+        = link_to "Add section", new_account_project_section_path(@project), class: "button  is-link"
       .level-item
-        = link_to "back", account_projects_path, class: "button  is-link"
+        = link_to "Back", account_projects_path, class: "button  is-link"
   - @project.sections.each do |section|
     .conteiner.box
       .level
@@ -14,13 +14,32 @@ br/
             = section.name
         .level-right
           .level-item
-            = link_to "edit",  edit_account_project_section_path(section.project_id, section), class: "button is-small right"
+            = link_to "Edit",  edit_account_project_section_path(section.project_id, section),
+              class: "button is-small right"
           .level-item
-            = link_to "delete",  account_project_section_path(section.project_id, section), :method => :delete, class: "button is-small right"
+            = link_to "Delete",  account_project_section_path(section.project_id, section),
+              method: :delete, class: "button is-small right", data: { confirm: 'Are you sure?' }
       .level
         .level-left
           .level-item
-            = link_to "add task", new_account_project_section_task_path(@project, section), class: "button is-link is-small"
-      - section.tasks.each do |task|
-        = link_to "#{task.title}", account_project_section_task_path(@project, section, task)
+            = link_to "Add task", new_account_project_section_task_path(@project, section),
+              class: "button is-link is-small"
+      - tasks_by(section).each do |task|
+        .level
+          .level-left
+            .level-item
+              = link_to "#{task.title}", account_project_section_task_path(@project, section, task)
+            .level-item
+              = link_to "Up", account_project_section_task_move_path(@project, section, task, :up), 
+                method: :put, class: "button is-small left"
+            .level-item
+              = link_to "Down", account_project_section_task_move_path(@project, section, task, :down),
+                method: :put, class: "button is-small left"
+          .level-right
+            .level-item
+              = link_to "Edit", edit_account_project_section_task_path(@project, section, task),
+                class: "button is-small right"
+            .level-item
+              = link_to "Delete", account_project_section_task_path(@project, section, task), 
+                method: :delete,  class: "button is-small right", data: { confirm: "Are you sure?" }
         br/

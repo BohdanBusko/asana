@@ -12,10 +12,11 @@ html
 
   body
     = render 'shared/navbar'
-    .notification
-      = notice
-    .alert
-      = alert
+    - if !flash.empty?
+      .notification  
+        = notice
+      .alert
+        = alert
     .container
       = yield
     / = render 'shared/footer'
