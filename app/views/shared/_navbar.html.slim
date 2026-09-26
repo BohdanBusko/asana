@@ -1,0 +1,37 @@
+.navbar.is-success[role="navigation" aria-label="main navigation"]
+  .navbar-brand
+    .navbar-item
+      = link_to image_tag("asana_logo.png", class: "asana_logo"), root_path
+    a.navbar-burger.burger[role="button" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+      span[aria-hidden="true"]
+  #navbar_test.navbar-menu
+    .navbar-start
+      .navbar-item IF-089.Ruby 
+      - if user_signed_in?
+        a.navbar-item[href="/account/dashboard"]
+          | Dashboard
+        a.navbar-item[href="/account/projects"]
+          | My projects
+      / .navbar-item.has-dropdown.is-hoverable
+        a.navbar-link
+          |  My Tasks 
+        .navbar-dropdown
+          a.navbar-item
+            |  List 
+          a.navbar-item
+            |  Calendar 
+    .navbar-end
+      .navbar-item
+        - if (!user_signed_in?)
+          .buttons
+              .button.is-primary
+                = link_to "Sign Up", new_user_registration_path
+              .button.is-light
+                = link_to "Log in", new_user_session_path
+        - else
+          .navbar-item
+            .user_email
+              = current_user.email
+            = link_to "Log out", destroy_user_session_path, method: :delete, class: 'button is-primary'

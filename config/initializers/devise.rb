@@ -8,8 +8,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '80171ce4818621e6d30b5f022a6338773b0b340c407305e8388e92008ba89103c1a6eec648afdd76dd950d5342c0b4d814165afc194f2a1a54ed508de33138b5'
-  
+  # config.secret_key = '086e785a9680cd3432980657907bd2b136a5a97b68a146e041aa152d75fa1bfd4905b346950a40d454e237f8b54430dd8aaa01299a55330c9c6f173e2dbcb346'
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -114,7 +114,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 11
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = '0336ffa1aa01121ac9d9be5eba44dd940ca9f33d9ccd4e59fc2ef54ea16be3d1d52afc08c66bc44fbd2d83664a276e6a816f0eacac7b210cdacddd7057b8a44a'
+  # config.pepper = '0f55c1bf2250cfe84eda11be8483bc7052085d86a41973fce92ef3aa4e7afa4ed37ed445da22b0fb48996ea6feda3be6a39f01d93e8077bdeb0057ac9819531a'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -287,4 +287,5 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.omniauth :facebook, "2213798932209307", "8560dbd360058e9e4dfafd4f9328bbc0", scope: 'email', info_fields: 'email, name'
 end

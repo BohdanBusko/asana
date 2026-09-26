@@ -1,0 +1,4 @@
+= simple_form_for @project, url: yield(:url) do |f|
+  = f.input :name, placeholder: 'Name'
+  br
+  = f.submit
